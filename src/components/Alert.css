@@ -1,0 +1,23 @@
+/* src/components/Alert.css */
+
+.alert {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  /* Stile per alert di successo */
+  .alert.success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  /* Stile per alert di errore */
+  .alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
