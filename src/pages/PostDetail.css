@@ -1,27 +1,38 @@
 /* src/pages/PostDetail.css */
 
-/* Container dei bottoni */
 .navigation-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
-  /* Singolo bottone */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Permette ai bottoni di andare a capo su mobile */
+}
+
+.nav-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: darkblue;
+  transform: translateY(-3px);
+}
+
+.back-button-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* 👇 Bottoni più piccoli su smartphone */
+@media (max-width: 480px) {
   .nav-button {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9rem;
+    padding: 8px 16px;
   }
-  
-  .nav-button:hover {
-    background-color: darkblue;
-    transform: translateY(-3px);
-  }
-  
+}
