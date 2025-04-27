@@ -1,5 +1,4 @@
 // src/App.jsx
-// src/App.jsx
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DefaultLayout from './components/layouts/DefaultLayout';
@@ -33,4 +32,3 @@ const App = () => {
 };
 
 export default App;
-
