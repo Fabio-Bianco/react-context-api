@@ -47,14 +47,14 @@ const PostDetail = () => {
       <h2>{post.title}</h2>
       <p>{post.body}</p>
 
-      
-      <button onClick={goToPreviousPost} disabled={currentId <= 1}>
-  ◀ Post Precedente
-</button>
 
-<button onClick={goToNextPost} disabled={currentId >= 100}>
-  Post Successivo ▶
-</button>
+      <button onClick={goToPreviousPost} disabled={currentId <= 1}>
+        ◀ Post Precedente
+      </button>
+
+      <button onClick={goToNextPost} disabled={currentId >= 100}>
+        Post Successivo ▶
+      </button>
 
     </div>
   );
