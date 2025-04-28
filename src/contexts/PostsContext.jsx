@@ -17,10 +17,10 @@ export function PostsProvider({ children }) {
   function fetchPosts() {
     setLoading(true);
     console.log('📡 Partita la richiesta dei posts...');
-
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+  
+    axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10') 
       .then((response) => {
-        console.log('✅ Posts ricevuti:', response.data);
+        console.log('✅ Posts ricevuti (limitati):', response.data);
         setPosts(response.data);
       })
       .catch((error) => {
@@ -31,7 +31,7 @@ export function PostsProvider({ children }) {
         console.log('🏁 Fine caricamento posts');
       });
   }
-
+  
   // 🎯 useEffect per caricare i dati appena il componente si monta
   useEffect(() => {
     fetchPosts();

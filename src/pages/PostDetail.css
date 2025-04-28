@@ -1,5 +1,28 @@
 /* src/pages/PostDetail.css */
 
+/* Contenitore generale del post */
+.post-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Titolo del post */
+.post-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Testo del post */
+.post-detail p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Contenitore dei bottoni di navigazione */
 .navigation-buttons {
   display: flex;
   justify-content: center;
@@ -8,31 +31,49 @@
   flex-wrap: wrap; /* Permette ai bottoni di andare a capo su mobile */
 }
 
+/* Stile generale dei bottoni */
 .nav-button {
   background-color: blue;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.nav-button:hover {
+/* Effetto hover sui bottoni */
+.nav-button:hover:not(:disabled) {
   background-color: darkblue;
   transform: translateY(-3px);
 }
 
+/* Stile dei bottoni disabilitati */
+.nav-button:disabled {
+  background-color: lightgray;
+  color: gray;
+  cursor: not-allowed;
+}
+
+/* Contenitore per il bottone "Torna ai Post" */
 .back-button-container {
   margin-top: 30px;
   text-align: center;
 }
 
-/* 👇 Bottoni più piccoli su smartphone */
+/* Responsive: bottoni e testi più piccoli su smartphone */
 @media (max-width: 480px) {
   .nav-button {
-    font-size: 0.9rem;
-    padding: 8px 16px;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .post-detail h2 {
+    font-size: 1.5rem;
+  }
+
+  .post-detail p {
+    font-size: 1rem;
   }
 }
