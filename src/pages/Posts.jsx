@@ -1,26 +1,11 @@
-import { useEffect, useState } from "react";
+// src/pages/Posts.jsx
+
+import { usePostsContext } from "../contexts/PostsContext"; // 👈 Importiamo l'hook personalizzato
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    console.log("📡 Inizio fetch dei post...");
-    setLoading(true);
-
-    axios.get("https://jsonplaceholder.typicode.com/posts")
-      .then(response => {
-        console.log("✅ Post ricevuti:", response.data);
-        setPosts(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("❌ Errore nel fetch:", error);
-        setLoading(false);
-      });
-  }, []);
+  // Prendiamo posts e loading dal context
+  const { posts, loading } = usePostsContext();
 
   return (
     <div>
