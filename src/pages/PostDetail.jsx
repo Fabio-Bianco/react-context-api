@@ -2,13 +2,12 @@
 
 import { usePostsContext } from "../contexts/PostsContext";
 import { useParams, useNavigate } from "react-router-dom";
-import "./PostDetail.css"; // 👈 Import del CSS corretto!
+import "./PostDetail.css";
 
 const PostDetail = () => {
   const { posts, loading } = usePostsContext();
   const { id } = useParams();
   const navigate = useNavigate();
-
   const currentId = Number(id);
 
   if (loading) {
@@ -18,10 +17,19 @@ const PostDetail = () => {
   const post = posts.find(p => p.id === currentId);
 
   if (!post) {
-    return <p>❌ Post non trovato.</p>;
+    return (
+      <div className="post-detail">
+        <p>❌ Post non trovato.</p>
+        <button className="nav-button" onClick={() => navigate('/posts')}>
+          ⬅ Torna ai Post
+        </button>
+      </div>
+    );
   }
 
-  // Funzioni per navigare
+  const minId = Math.min(...posts.map(p => p.id));
+  const maxId = Math.max(...posts.map(p => p.id));
+
   const goToPreviousPost = () => {
     navigate(`/posts/${currentId - 1}`);
   };
@@ -31,12 +39,8 @@ const PostDetail = () => {
   };
 
   const goBackToPosts = () => {
-    navigate("/posts");
+    navigate('/posts');
   };
-
-  // Troviamo l'ID minimo e massimo nei posts
-  const minId = Math.min(...posts.map(p => p.id));
-  const maxId = Math.max(...posts.map(p => p.id));
 
   return (
     <div className="post-detail">
@@ -47,14 +51,14 @@ const PostDetail = () => {
         <button 
           className="nav-button" 
           onClick={goToPreviousPost} 
-          disabled={currentId === minId} // 👈 Disabilita se siamo al primo post
+          disabled={currentId === minId}
         >
           ◀ Post Precedente
         </button>
         <button 
           className="nav-button" 
           onClick={goToNextPost} 
-          disabled={currentId === maxId} // 👈 Disabilita se siamo all'ultimo post
+          disabled={currentId === maxId}
         >
           Post Successivo ▶
         </button>
